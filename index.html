@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Logan UL - Portfolio</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css"/>
   </head>
   <body>
     <nav>
@@ -31,9 +31,67 @@
           </div>
         </div>
       </div>
-      <div style="height: 20000px;"></div>
+      <div class="examples">
+        <h2 id="example-header">Examples</h2>
+        <div class="color-wrapper">
+          <div class="pictures">
+            <div class="img-box"></div>
+          </div>
+        </div>
+        
+        
+        <div class="options">
+          <button id="previous-btn" onclick="move_image(false)" class="button">Previous</button>
+          <button id="next-btn" onclick="move_image(true)" class="button">Next</button>
+        </div>
+      </div>
+      <div style="height: 2000px;"></div>
       </div>
     </main>
-    
+    <script>
+      let imgBox = document.querySelector(".img-box");
+      let exampleImage1 = document.createElement("img");
+      let exampleImage2 = document.createElement("img");
+      let exampleImage3 = document.createElement("img");
+      let imgList = [exampleImage1, exampleImage2, exampleImage3];
+      for(number = 0; number < imgList.length; number++) {
+        imgList[number].src = `https://loremflickr.com/600/400?random=1${number + 1}`;
+        imgList[number].id = `example-img-${number + 1}`;
+        imgList[number].classList.add("image-spacing");
+      }
+
+      function update_images() {
+        imgBox.innerHTML = '';
+        for(number = 0; number < imgList.length; number++) {
+          imgBox.appendChild(imgList[number]);
+        }
+      }
+
+      update_images();
+
+      function move_image(direction) {
+        if (imgBox.classList.contains("animated-image-left") || imgBox.classList.contains("animated-image-right")) {
+          return
+        }
+        if (direction === true) {
+          imgBox.classList.add("animated-image-left");
+        setTimeout(() => {
+          imgBox.classList.remove("animated-image-left");
+        }, 1000);
+          imgList.push(imgList.shift());
+        } else {
+          imgBox.classList.add("animated-image-right");
+        setTimeout(() => {
+          imgBox.classList.remove("animated-image-right");
+        }, 1000);
+          imgList.unshift(imgList.pop());
+        }
+        update_images();
+
+        
+        
+      }
+
+    </script>
   </body>
 </html>
