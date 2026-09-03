@@ -17,12 +17,15 @@
     </nav>
     <main>
       <div class="hero curved-box">
-        <img
+
+        <div class="hero-image-box">
+          <img
           src="web-development-svgrepo-com.svg"
           alt="Web Development"
-          height="300"
-          style="filter: invert(1)"
+          style="filter: invert(1); height:100%; width:100%;"
         />
+        </div>
+        
         <div class="hero-content">
           <h1>Real human web development.</h1>
           <div class="options">
@@ -57,7 +60,8 @@
       for(number = 0; number < imgList.length; number++) {
         imgList[number].src = `https://loremflickr.com/600/400?random=1${number + 1}`;
         imgList[number].id = `example-img-${number + 1}`;
-        imgList[number].classList.add("image-spacing");
+        imgList[number].classList.add("image");
+        imgList[number].classList.add("curved-box");
       }
 
       function update_images() {
