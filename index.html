@@ -20,7 +20,7 @@
 
         <div class="hero-image-box">
           <img
-          src="web-development-svgrepo-com.svg"
+          src="static/web-development-svgrepo-com.svg"
           alt="Web Development"
           style="filter: invert(1); height:100%; width:100%;"
         />
@@ -44,8 +44,13 @@
         
         
         <div class="options">
-          <button id="previous-btn" onclick="move_image(false)" class="button">Previous</button>
-          <button id="next-btn" onclick="move_image(true)" class="button">Next</button>
+          <div id="upper-buttons">
+            <button id="previous-btn" onclick="move_image(false)" class="button">Previous</button>
+            <button id="next-btn" onclick="move_image(true)" class="button">Next</button>
+          </div>
+          <div id="lower-buttons">
+            <button class="button" style="text-wrap: nowrap;">See more about this example</button>
+          </div>
         </div>
       </div>
       <div style="height: 2000px;"></div>
@@ -57,8 +62,11 @@
       let exampleImage2 = document.createElement("img");
       let exampleImage3 = document.createElement("img");
       let imgList = [exampleImage1, exampleImage2, exampleImage3];
+      let pathList = ["static/Duck-System-Example.png", "https://loremflickr.com/600/400?random=2", "https://loremflickr.com/600/400?random=3"];
+
+
       for(number = 0; number < imgList.length; number++) {
-        imgList[number].src = `https://loremflickr.com/600/400?random=1${number + 1}`;
+        imgList[number].src = pathList[number];
         imgList[number].id = `example-img-${number + 1}`;
         imgList[number].classList.add("image");
         imgList[number].classList.add("curved-box");

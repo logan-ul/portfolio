@@ -90,6 +90,18 @@ button {
 .options {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+}
+
+#upper-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+#lower-buttons {
+  display: flex;
+  justify-content: center;
 }
 
 .button {
