@@ -84,7 +84,7 @@ button {
 .hero-content h1 {
   font-size: 3.6rem;
   margin-bottom: 10px;
-  font-style: bold;
+  font-weight: bold;
 }
 
 .options {
@@ -211,6 +211,14 @@ button {
 
   .hero {
     width: 100%;
+  }
+
+  .hero-content h1 {
+    font-size: 3.6rem;
+  }
+
+  .hero-image-box {
+    display: none;
   }
 
   .examples {
