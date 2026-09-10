@@ -4,12 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Logan UL - Portfolio</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css"/>
   </head>
   <body>
-    <div class="overlay hidden">
-      <div class="overlay-content"><img src="" alt=""></div>
-    </div>
     <nav>
       <div class="header">
         <div class="header-content">
@@ -19,62 +16,38 @@
       </div>
     </nav>
     <main>
-      <div class="hero curved-box">
-        <div class="hero-image-box">
-          <img
-            src="static/web-development-svgrepo-com.svg"
-            alt="Web Development"
-            style="filter: invert(1); height: 100%; width: 100%"
-          />
-        </div>
-
-        <div class="hero-content">
-          <h1>Real Human Websites.</h1>
-          <div class="options" style="flex-direction: row">
-            <a href="" class="button">View Projects</a>
-            <a href="" class="button">About Me</a>
-          </div>
-        </div>
-      </div>
-      <div class="gallery">
-        <h2 id="example-header">Examples</h2>
+      <div class="duck-system gallery">
         <div class="color-wrapper">
           <div class="pictures">
             <div class="img-box"></div>
           </div>
         </div>
-
         <div class="options">
           <div id="upper-buttons">
-            <button id="previous-btn" class="button move-button">
-              Previous
-            </button>
+            <button id="previous-btn" class="button move-button">Previous</button>
             <button id="next-btn" class="button move-button">Next</button>
-          </div>
-          <div id="lower-buttons">
-            <a id="details-btn" class="button" style="text-wrap: nowrap" href=""
-              >See more about this example</a
-            >
           </div>
         </div>
       </div>
-      <div style="height: 2000px"></div>
+      <div style="height: 2000px;"></div>
+      </div>
     </main>
-    <script src="gallery.js"></script>
+  </body>
+  <script src="gallery.js"></script>
     <script defer>
       let image1 = new GalleryImage(
-        "duck-system",
+        "duck-system-admin",
         "static/Duck-System-Example.png",
         document.createElement("img"),
       );
       let image2 = new GalleryImage(
-        "task-assessment",
-        "static/Task-Assessment-Example.png",
+        "duck-system-form",
+        "static/Duck-System-Form.png",
         document.createElement("img"),
       );
       let image3 = new GalleryImage(
-        "vietnam",
-        "static/Vietnam-Example.png",
+        "duck-system-docs",
+        "static/Duck-System-Docs.png",
         document.createElement("img"),
       );
 
@@ -97,5 +70,4 @@
 
       main(imageCollection, container, detailsButton);
     </script>
-  </body>
 </html>

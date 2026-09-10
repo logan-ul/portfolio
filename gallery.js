@@ -5,7 +5,6 @@ class GalleryImage {
     this.element = element;
   }
 }
-
 function main(imageCollection, container, detailsButton = null) {
   for (number = 0; number < imageCollection.length; number++) {
     imageCollection[number].element.src = imageCollection[number].imagePath;
@@ -21,32 +20,37 @@ function update_images(container, imageCollection, detailsButton = null) {
   for (number = 0; number < imageCollection.length; number++) {
     container.appendChild(imageCollection[number].element);
     if (detailsButton) {
-      detailsButton.href = `/examples.html#${imageCollection[number].name}`;
+      detailsButton.href = `/${imageCollection[1].name}.html`;
     }
   }
 }
 
-function move_image(direction) {
+function move_image(
+  direction,
+  container,
+  imageCollection,
+  detailsButton = null,
+) {
   if (
-    imgBox.classList.contains("animated-image-left") ||
-    imgBox.classList.contains("animated-image-right")
+    container.classList.contains("animated-image-left") ||
+    container.classList.contains("animated-image-right")
   ) {
     return;
   }
   if (direction === true) {
-    imgBox.classList.add("animated-image-left");
+    container.classList.add("animated-image-left");
     setTimeout(() => {
-      imgBox.classList.remove("animated-image-left");
+      container.classList.remove("animated-image-left");
     }, 1000);
     imageCollection.push(imageCollection.shift());
   } else {
-    imgBox.classList.add("animated-image-right");
+    container.classList.add("animated-image-right");
     setTimeout(() => {
-      imgBox.classList.remove("animated-image-right");
+      container.classList.remove("animated-image-right");
     }, 1000);
     imageCollection.unshift(imageCollection.pop());
   }
-  update_images();
+  update_images(container, imageCollection, detailsButton);
 }
 
 /* 
@@ -66,4 +70,35 @@ REQUIRED SECTION OF HTML:
             </button>
           </div>
         </div>
+*/
+
+/*
+JS USECASE
+
+<script src="gallery.js"></script>
+    <script defer>
+      let image1 = new GalleryImage(
+        "duck-system",
+        "static/Duck-System-Example.png",
+        document.createElement("img"),
+      );
+      const buttons = document.querySelectorAll(".move-button");
+      const imageCollection = [image1];
+      const container = document.querySelector(".img-box");
+      <OPTIONAL> const detailsButton = document.querySelector("#details-btn");
+
+      buttons.forEach((button) => {
+        if (button.id === "previous-btn") {
+          button.addEventListener("click", () => {
+            move_image(false, container, imageCollection, detailsButton);
+          });
+        } else if (button.id === "next-btn") {
+          button.addEventListener("click", () => {
+            move_image(true, container, imageCollection, detailsButton);
+          });
+        }
+      });
+
+      main(imageCollection, container, detailsButton);
+    </script>
 */
