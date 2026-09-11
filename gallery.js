@@ -5,19 +5,41 @@ class GalleryImage {
     this.element = element;
   }
 }
-function main(imageCollection, container, detailsButton = null) {
-  for (number = 0; number < imageCollection.length; number++) {
-    imageCollection[number].element.src = imageCollection[number].imagePath;
-    imageCollection[number].element.id = `example-img-${number + 1}`;
-    imageCollection[number].element.classList.add("image");
-    imageCollection[number].element.classList.add("curved-box");
-  }
-  update_images(container, imageCollection, detailsButton);
+
+function uncoverOverlay(picture) {
+  picture.element.addEventListener("click", () => {
+    const overlayElement = document.querySelector(".overlay");
+    const overlayImage = document.querySelector(".overlay-content img");
+    console.log(picture);
+    overlayImage.src = picture.imagePath;
+    overlayElement.classList.remove("hidden");
+  });
 }
 
-function update_images(container, imageCollection, detailsButton = null) {
+function main(
+  imageCollection,
+  container,
+  detailsButton = null,
+  overlay = false,
+) {
+  console.log(imageCollection);
+  for (number = 0; number < imageCollection.length; number++) {
+    let picture = imageCollection[number];
+    picture.element.src = picture.imagePath;
+    picture.element.id = `example-img-${number + 1}`;
+    picture.element.classList.add("image");
+    picture.element.classList.add("curved-box");
+    if (overlay) {
+      uncoverOverlay(picture);
+    }
+  }
+  updateImages(container, imageCollection, detailsButton);
+}
+
+function updateImages(container, imageCollection, detailsButton = null) {
   container.innerHTML = "";
   for (number = 0; number < imageCollection.length; number++) {
+    console.log(imageCollection[number]);
     container.appendChild(imageCollection[number].element);
     if (detailsButton) {
       detailsButton.href = `/${imageCollection[1].name}.html`;
@@ -25,7 +47,7 @@ function update_images(container, imageCollection, detailsButton = null) {
   }
 }
 
-function move_image(
+function moveImage(
   direction,
   container,
   imageCollection,
@@ -50,7 +72,7 @@ function move_image(
     }, 1000);
     imageCollection.unshift(imageCollection.pop());
   }
-  update_images(container, imageCollection, detailsButton);
+  updateImages(container, imageCollection, detailsButton);
 }
 
 /* 
@@ -60,12 +82,12 @@ REQUIRED SECTION OF HTML:
           <div id="upper-buttons">
             <button
               id="previous-btn"
-              onclick="move_image(false)"
+              onclick="moveImage(false)"
               class="button"
             >
               Previous
             </button>
-            <button id="next-btn" onclick="move_image(true)" class="button">
+            <button id="next-btn" onclick="moveImage(true)" class="button">
               Next
             </button>
           </div>

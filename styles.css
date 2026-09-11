@@ -45,6 +45,11 @@ button {
   border: none;
 }
 
+.overlay-image {
+  max-width: 80vw;
+  max-height: 80vh;
+}
+
 .header {
   background-color: var(--dusk-blue);
   width: 100%;
