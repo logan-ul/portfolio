@@ -143,12 +143,21 @@ button {
 
 .duck-system-gal-wrapper {
   float: left;
+  padding-right: 20px;
 }
 
 .duck-system-gal {
   margin-top: 50px;
   margin-left: 0;
   margin-right: 0;
+}
+
+.duck-system-content {
+  margin-top: 50px;
+}
+
+.duck-system-content * {
+  padding: 20px;
 }
 
 .pictures {
@@ -161,7 +170,7 @@ button {
 
 .color-wrapper {
   background-color: var(--dusk-blue);
-  padding: 50px;
+  padding: 30px;
   border-radius: 20px;
 }
 .img-box {

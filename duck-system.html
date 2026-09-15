@@ -4,31 +4,51 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Logan UL - Portfolio</title>
-    <link rel="stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href="duck-system.css"/>
   </head>
   <body>
+    <div class="overlay hidden">
+      <div class="overlay-content">
+        <img src="" alt="" class="overlay-image curved-box" />
+      </div>
+    </div>
     <nav>
-      <div class="header">
-        <div class="header-content">
+      <div class="nav-header">
+        <div class="nav-header-content">
           <h1 id="name-header">Logan UL</h1>
           <p id="title-header">Web Developer</p>
         </div>
       </div>
     </nav>
     <main>
-      <div class="duck-system gallery">
-        <div class="color-wrapper">
-          <div class="pictures">
-            <div class="img-box"></div>
+      <div class="header">
+        <h1>Duck API/system</h1>
+      </div>
+      <div class="duck-system-gal-wrapper">
+        <div class="duck-system-gal gallery">
+          <div class="color-wrapper">
+            <div class="pictures">
+              <div class="img-box"></div>
+            </div>
           </div>
-        </div>
-        <div class="options">
-          <div id="upper-buttons">
-            <button id="previous-btn" class="button move-button">Previous</button>
-            <button id="next-btn" class="button move-button">Next</button>
+          <div class="options">
+            <div id="upper-buttons">
+              <button id="previous-btn" class="button move-button">Previous</button>
+              <button id="next-btn" class="button move-button">Next</button>
+            </div>
           </div>
         </div>
       </div>
+        <div class="duck-system-content">
+          <p>You know how key cards work? Thats pretty similar to what this project was about. As a part of the Computer Programming class at ECTS
+            we can earn these prizes known as "Duck Pieces." With enough of these pieces we can eventually put together a Duck. Once a student put together a duck
+            a chip could then be glued to the bottom and information about said duck would be applied.
+          </p>
+          <br>
+          <p>My part in this project centers around the actual storage of all this information. The picture you see with the "Request a Duck" form details all the 
+            information students had to fill out. I helped design and create this website that would take information, 
+          </p>
+        </div>
       <div style="height: 2000px;"></div>
       </div>
     </main>
@@ -55,19 +75,27 @@
       const imageCollection = [image1, image2, image3];
       const container = document.querySelector(".img-box");
       const detailsButton = document.querySelector("#details-btn");
+      const overlay = document.querySelector(".overlay");
+      const overlayImage = document.querySelector(".overlay-image");
+
+      overlayImage.addEventListener("click", () => {
+        if (!overlay.classList.contains(".hidden")) {
+          overlay.classList.add("hidden");
+        }
+      });
 
       buttons.forEach((button) => {
         if (button.id === "previous-btn") {
           button.addEventListener("click", () => {
-            move_image(false, container, imageCollection, detailsButton);
+            moveImage(false, container, imageCollection, detailsButton);
           });
         } else if (button.id === "next-btn") {
           button.addEventListener("click", () => {
-            move_image(true, container, imageCollection, detailsButton);
+            moveImage(true, container, imageCollection, detailsButton);
           });
         }
       });
 
-      main(imageCollection, container, detailsButton);
+      main(imageCollection, container, detailsButton, true);
     </script>
 </html>
