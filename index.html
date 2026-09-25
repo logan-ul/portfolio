@@ -17,7 +17,10 @@
         <div class="nav-header-content">
           <h1 id="name-header">Logan UL</h1>
           <p id="title-header">Web Developer</p>
+        </div>
       </div>
+      <div class="mobile-sidebar hidden">
+          <img src="static/lines-svgrepo-com.svg" alt="" id="sidebar-button" style="filter: invert(1);">
       </div>
       <div class="nav-links">
         <div class="dropdown">
@@ -96,6 +99,7 @@
     </main>
     <script src="gallery.js"></script>
     <script defer>
+      // For the gallery
       let image1 = new GalleryImage(
         "duck-system",
         "static/Duck-System-Example.png",
@@ -138,6 +142,21 @@
       });
 
       main(imageCollection, container, detailsButton, true);
+    </script>
+    <script>
+      //for the sidebar
+      const sidebarBtn = document.getElementById("sidebar-button")
+      const nav_links = document.querySelector(".nav-links")
+
+      sidebarBtn.addEventListener("click", e=>{
+        nav_links.classList.add("nav-links-active")
+        overlay.classList.remove("hidden")
+        overlay.addEventListener("click", e=>{
+          nav_links.classList.remove("nav-links-active")
+          overlay.classList.add("hidden")
+        })
+      })
+
     </script>
   </body>
 </html>
