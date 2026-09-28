@@ -68,7 +68,14 @@ li {
 
 .nav-links {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.nav-links .links {
+  display: flex;
   align-items: center;
+  justify-content: center;
   padding: 20px;
 }
 
@@ -371,6 +378,22 @@ li {
     position: fixed;
     background-color: var(--prussian-blue);
     margin-left: 25%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .socials {
+    display: flex;
+    justify-content: center;
+  }
+
+  .socials img {
+    width: 80px;
+    padding: 10px;
+  }
+
+  .links {
+    flex-direction: column;
   }
 
   .mobile-sidebar {

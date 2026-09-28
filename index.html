@@ -20,40 +20,59 @@
         </div>
       </div>
       <div class="mobile-sidebar hidden">
-          <img src="static/lines-svgrepo-com.svg" alt="" id="sidebar-button" style="filter: invert(1);">
+        <img
+          src="static/lines-svgrepo-com.svg"
+          alt=""
+          id="sidebar-button"
+          style="filter: invert(1)"
+        />
       </div>
       <div class="nav-links">
-        <div class="dropdown">
-          <div class="dropdown-header">
-            <h4>Web Projects</h4>
+        <div class="links">
+          <div class="dropdown">
+            <div class="dropdown-header">
+              <h4>Web Projects</h4>
+            </div>
+            <div class="dropdown-options">
+              <a href="duck-system.html" class="nav-link">Duck System</a>
+              <a href="task-assessment.html" class="nav-link"
+                >Task Assessment</a
+              >
+              <a href="duck-system.html" class="nav-link"
+                >Vietnam School Project</a
+              >
+            </div>
           </div>
-          <div class="dropdown-options">
-            <a href="duck-system.html" class="nav-link">Duck System</a>
-            <a href="task-assessment.html" class="nav-link">Task Assessment</a>
-            <a href="duck-system.html" class="nav-link">Vietnam School Project</a>
+          <div class="dropdown">
+            <div class="dropdown-header">
+              <h4><a href="">Other Projects</a></h4>
+            </div>
+          </div>
+          <div class="dropdown">
+            <div class="dropdown-header">
+              <h4><a href="extras.html">Extras</a></h4>
+            </div>
+          </div>
+          <div class="dropdown">
+            <div class="dropdown-header">
+              <h4><a href="extras.html">Certifications</a></h4>
+            </div>
+          </div>
+          <div class="dropdown">
+            <div class="dropdown-header">
+              <h4><a href="extras.html">About Me</a></h4>
+            </div>
           </div>
         </div>
-        <div class="dropdown">
-          <div class="dropdown-header">
-            <h4><a href="">Other Projects</a></h4>
-          </div>
+        <div class="socials hidden">
+          <a href="https://github.com/logan-ul"
+            ><img
+              src="static/GitHub_Invertocat_Black.svg"
+              style="filter: invert(1)"
+              alt=""
+          /></a>
         </div>
-        <div class="dropdown">
-          <div class="dropdown-header">
-            <h4><a href="extras.html">Extras</a></h4>
-          </div>
-        </div>
-        <div class="dropdown">
-          <div class="dropdown-header">
-            <h4><a href="extras.html">Certifications</a></h4>
-          </div>
-        </div>
-        <div class="dropdown">
-          <div class="dropdown-header">
-            <h4><a href="extras.html">About Me</a></h4>
-          </div>
-        </div>
-
+      </div>
     </nav>
     <main>
       <div class="hero curved-box">
@@ -145,18 +164,20 @@
     </script>
     <script>
       //for the sidebar
-      const sidebarBtn = document.getElementById("sidebar-button")
-      const nav_links = document.querySelector(".nav-links")
+      const sidebarBtn = document.getElementById("sidebar-button");
+      const nav_links = document.querySelector(".nav-links");
+      const socials = document.querySelector(".socials");
 
-      sidebarBtn.addEventListener("click", e=>{
-        nav_links.classList.add("nav-links-active")
-        overlay.classList.remove("hidden")
-        overlay.addEventListener("click", e=>{
-          nav_links.classList.remove("nav-links-active")
-          overlay.classList.add("hidden")
-        })
-      })
-
+      sidebarBtn.addEventListener("click", (e) => {
+        nav_links.classList.add("nav-links-active");
+        overlay.classList.remove("hidden");
+        socials.classList.remove("hidden");
+        overlay.addEventListener("click", (e) => {
+          nav_links.classList.remove("nav-links-active");
+          overlay.classList.add("hidden");
+          socials.classList.add("hidden");
+        });
+      });
     </script>
   </body>
 </html>
