@@ -239,21 +239,19 @@ li {
   box-sizing: content-box;
   width: 600px;
   overflow: hidden;
-  height: 400px;
   border-radius: 20px;
+  background-color: var(--dusk-blue);
 }
 
-.color-wrapper {
-  background-color: var(--dusk-blue);
-  padding: 50px;
-  border-radius: 20px;
-}
 .img-box {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
   width: 100%;
+}
+
+.pictures p {
+  padding: 2px;
 }
 
 .image {

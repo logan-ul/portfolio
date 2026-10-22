@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Logan UL - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="duck-system.css"/>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="duck-system.css" />
   </head>
   <body>
     <div class="overlay hidden">
@@ -27,92 +27,103 @@
       </div>
       <div class="duck-system-gal-wrapper">
         <div class="duck-system-gal gallery">
-          <div class="color-wrapper">
-            <div class="pictures">
-              <div class="img-box"></div>
-            </div>
+          <div class="pictures">
+            <div class="img-box"></div>
+            <p>
+              You can get all of this information for the ducks span
+              <a style="padding: 0; font-weight: bold" href="">here.</a>
+            </p>
           </div>
           <div class="options">
             <div id="upper-buttons">
-              <button id="previous-btn" class="button move-button">Previous</button>
+              <button id="previous-btn" class="button move-button">
+                Previous
+              </button>
               <button id="next-btn" class="button move-button">Next</button>
             </div>
           </div>
         </div>
       </div>
+      <div>
         <div class="duck-system-content">
-          <p>You know how key cards work? Thats pretty similar to what this project was about. As a part of the Computer Programming class at ECTS
-            we can earn these prizes known as "Duck Pieces." With enough of these pieces we can eventually put together a Duck. Once a student put together a duck,
-            a chip could then be glued to the bottom and information about said duck would be applied.
+          <p>
+            You know how key cards work? Thats pretty similar to what this
+            project was about. As a part of the Computer Programming class at
+            ECTS we can earn these prizes known as "Duck Pieces." With enough of
+            these pieces we can eventually put together a Duck. Once a student
+            put together a duck, a chip could then be glued to the bottom and
+            information about said duck would be applied.
           </p>
-          <p>My part in this project centers around the actual storage of all this information. The picture you see with the "Request a Duck" form details all the 
-            information students had to fill out. I helped design and create this website that would take this information, store it in a database, and write the api link to the chip on the bottom of the duck.
+          <p>
+            My part in this project centers around the actual storage of all
+            this information. The picture you see with the "Request a Duck" form
+            details all the information students had to fill out. I helped
+            design and create this website that would take this information,
+            store it in a database, and write the api link to the chip on the
+            bottom of the duck.
           </p>
-          <p>What made this <strong>extra cool</strong> is that the little readers, that would accept a duck you might place on it, gave back information directly from the api.
-          This meant that other people in the class room could:
+          <p>
+            What made this <strong>extra cool</strong> is that the little
+            readers, that would accept a duck you might place on it, gave back
+            information directly from the api. This meant that other people in
+            the class room could:
           </p>
           <ol>
+            <li>Put together a duck</li>
+            <li>Fill out a form with all of its information</li>
+            <li>Write that information to the duck's chip</li>
             <li>
-              Put together a duck
-            </li>
-            <li>
-              Fill out a form with all of its information
-            </li>
-            <li>
-              Write that information to the duck's chip
-            </li>
-            <li>
-              Use or request that information in other later applications through a simple link
+              Use or request that information in other later applications
+              through a simple link
             </li>
           </ol>
-          <p>You can get all of this information for the ducks span <a style="padding: 0;" href="">here.</a></p>
         </div>
       </div>
     </main>
   </body>
   <script src="gallery.js"></script>
-    <script defer>
-      let image1 = new GalleryImage(
-        "duck-system-admin",
-        "static/Duck-System-Example.png",
-        document.createElement("img"),
-      );
-      let image2 = new GalleryImage(
-        "duck-system-form",
-        "static/Duck-System-Form.png",
-        document.createElement("img"),
-      );
-      let image3 = new GalleryImage(
-        "duck-system-docs",
-        "static/Duck-System-Docs.png",
-        document.createElement("img"),
-      );
+  <script defer>
+    let image1 = new GalleryImage(
+      "duck-system-admin",
+      "static/Duck-System-Example.png",
+      document.createElement("img"),
+    );
+    let image2 = new GalleryImage(
+      "duck-system-form",
+      "static/Duck-System-Form.png",
+      document.createElement("img"),
+    );
+    let image3 = new GalleryImage(
+      "duck-system-docs",
+      "static/Duck-System-Docs.png",
+      document.createElement("img"),
+    );
 
-      const buttons = document.querySelectorAll(".move-button");
-      const imageCollection = [image1, image2, image3];
-      const container = document.querySelector(".img-box");
-      const detailsButton = document.querySelector("#details-btn");
-      const overlay = document.querySelector(".overlay");
-      const overlayImage = document.querySelector(".overlay-image");
+    const buttons = document.querySelectorAll(".move-button");
+    const imageCollection = [image1, image2, image3];
+    const container = document.querySelector(".img-box");
+    const detailsButton = document.querySelector("#details-btn");
+    const overlay = document.querySelector(".overlay");
+    const overlayImage = document.querySelector(".overlay-image");
 
-      overlayImage.addEventListener("click", () => {
-        if (!overlay.classList.contains(".hidden")) {
-          overlay.classList.add("hidden");
-        }
-      });
+    overlayImage.addEventListener("click", () => {
+      if (!overlay.classList.contains(".hidden")) {
+        overlay.classList.add("hidden");
+      }
+    });
 
-      buttons.forEach((button) => {
-        if (button.id === "previous-btn") {
-          button.addEventListener("click", () => {
-            moveImage(false, container, imageCollection, detailsButton);
-          });
-        } else if (button.id === "next-btn") {
-          button.addEventListener("click", () => {
-            moveImage(true, container, imageCollection, detailsButton);
-          });
-        }
-      });
+    buttons.forEach((button) => {
+      if (button.id === "previous-btn") {
+        button.addEventListener("click", () => {
+          moveImage(false, container, imageCollection, detailsButton);
+        });
+      } else if (button.id === "next-btn") {
+        button.addEventListener("click", () => {
+          moveImage(true, container, imageCollection, detailsButton);
+        });
+      }
+    });
 
-      main(imageCollection, container, detailsButton, true);
-    </script>
+    main(imageCollection, container, detailsButton, true);
+  </script>
 </html>
