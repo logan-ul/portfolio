@@ -1,10 +1,6 @@
-main {
-  height: 100vh;
-}
-
 .task-assessment-gal-wrapper {
-  float: left;
-  padding-right: 20px;
+  float: none;
+  padding-right: 0;
 }
 
 .task-assessment-gal {
@@ -12,11 +8,11 @@ main {
 }
 
 .task-assessment-content {
-  margin-top: 50px;
+  margin-top: 0;
 }
 
 .task-assessment-content *:not(strong):not(li) {
-  padding: 20px;
+  padding: 12px 0;
 }
 
 .task-assessment-content ol {

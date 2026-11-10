@@ -3,127 +3,52 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Logan UL - Portfolio</title>
+    <title>Logan UL - Duck API &amp; NFC System</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="duck-system.css" />
   </head>
   <body>
-    <div class="overlay hidden">
-      <div class="overlay-content">
-        <img src="" alt="" class="overlay-image curved-box" />
-      </div>
-    </div>
+    <div class="overlay hidden"><div class="overlay-content"><img src="" alt="Expanded project screenshot" class="overlay-image curved-box" /></div></div>
     <nav>
-      <div class="nav-header">
-        <div class="nav-header-content">
-          <h1 id="name-header">Logan UL</h1>
-          <p id="title-header">Web Developer</p>
-        </div>
-      </div>
+      <div class="nav-header"><div class="nav-header-content"><h1 id="name-header">Logan UL</h1><p id="title-header">Web Developer</p></div></div>
+      <div class="nav-links"><div class="links"><a class="button" href="index.html">Home</a><a class="button" href="extras.html">Extras</a><a class="button" href="certifications.html">Certifications</a><a class="button" href="about.html">About Me</a></div></div>
     </nav>
-    <main>
+    <main class="content-page project-page">
       <div class="header">
-        <h1>Duck API/System</h1>
+        <p class="eyebrow">Web development / APIs / NFC</p>
+        <h1>Duck API &amp; NFC System</h1>
+        <p class="page-intro">A connected system for storing duck information and making it available through NFC.</p>
       </div>
-      <div class="duck-system-gal-wrapper">
-        <div class="duck-system-gal gallery">
-          <div class="pictures">
-            <div class="img-box"></div>
-            <p>
-              You can get all of this information for the ducks span
-              <a style="padding: 0; font-weight: bold" href="">here.</a>
-            </p>
-          </div>
-          <div class="options">
-            <div id="upper-buttons">
-              <button id="previous-btn" class="button move-button">
-                Previous
-              </button>
-              <button id="next-btn" class="button move-button">Next</button>
-            </div>
+      <div class="project-layout">
+        <div class="project-gallery-card duck-system-gal-wrapper">
+          <div class="duck-system-gal gallery">
+            <div class="pictures"><div class="img-box"></div><p>The gallery shows the admin dashboard, request form, and API documentation for this project.</p></div>
+            <div class="options"><div id="upper-buttons"><button id="previous-btn" class="button move-button">Previous</button><button id="next-btn" class="button move-button">Next</button></div></div>
           </div>
         </div>
-      </div>
-      <div>
-        <div class="duck-system-content">
-          <p>
-            You know how key cards work? Thats pretty similar to what this
-            project was about. As a part of the Computer Programming class at
-            ECTS we can earn these prizes known as "Duck Pieces." With enough of
-            these pieces we can eventually put together a Duck. Once a student
-            put together a duck, a chip could then be glued to the bottom and
-            information about said duck would be applied.
-          </p>
-          <p>
-            My part in this project centers around the actual storage of all
-            this information. The picture you see with the "Request a Duck" form
-            details all the information students had to fill out. I helped
-            design and create this website that would take this information,
-            store it in a database, and write the api link to the chip on the
-            bottom of the duck.
-          </p>
-          <p>
-            What made this <strong>extra cool</strong> is that the little
-            readers, that would accept a duck you might place on it, gave back
-            information directly from the api. This meant that other people in
-            the class room could:
-          </p>
-          <ol>
-            <li>Put together a duck</li>
-            <li>Fill out a form with all of its information</li>
-            <li>Write that information to the duck's chip</li>
-            <li>
-              Use or request that information in other later applications
-              through a simple link
-            </li>
-          </ol>
+        <div class="project-description duck-system-content">
+          <p>A key card is a useful comparison: this project stores information on a small, scannable device. As part of the Computer Programming class at ECTS, students can earn prizes known as "Duck Pieces." With enough pieces, we can assemble a duck. Once a student builds one, an NFC chip can be attached to the bottom and programmed with information about it.</p>
+          <p>My part in this project focuses on storing and managing that information. The "Request a Duck" form shows the details students had to submit. I helped design and create the website that accepts this information, stores it in a database, and writes the API link to the chip on the bottom of the duck.</p>
+          <p>What made this <strong>extra cool</strong> is that small readers can accept a duck and return information directly from the API. This means that people in the classroom can:</p>
+          <ol><li>Put together a duck.</li><li>Fill out a form with its information.</li><li>Write that information to the duck's chip.</li><li>Use that information in other applications through a simple link.</li></ol>
         </div>
       </div>
     </main>
+    <script src="gallery.js"></script>
+    <script>
+      const imageCollection = [
+        new GalleryImage("duck-system-admin", "static/Duck-System-Example.png", document.createElement("img")),
+        new GalleryImage("duck-system-form", "static/Duck-System-Form.png", document.createElement("img")),
+        new GalleryImage("duck-system-docs", "static/Duck-System-Docs.png", document.createElement("img")),
+      ];
+      const buttons = document.querySelectorAll(".move-button");
+      const container = document.querySelector(".img-box");
+      const overlay = document.querySelector(".overlay");
+      const overlayImage = document.querySelector(".overlay-image");
+
+      overlayImage.addEventListener("click", () => overlay.classList.add("hidden"));
+      buttons.forEach((button) => button.addEventListener("click", () => moveImage(button.id === "next-btn", container, imageCollection)));
+      main(imageCollection, container, null, true);
+    </script>
   </body>
-  <script src="gallery.js"></script>
-  <script defer>
-    let image1 = new GalleryImage(
-      "duck-system-admin",
-      "static/Duck-System-Example.png",
-      document.createElement("img"),
-    );
-    let image2 = new GalleryImage(
-      "duck-system-form",
-      "static/Duck-System-Form.png",
-      document.createElement("img"),
-    );
-    let image3 = new GalleryImage(
-      "duck-system-docs",
-      "static/Duck-System-Docs.png",
-      document.createElement("img"),
-    );
-
-    const buttons = document.querySelectorAll(".move-button");
-    const imageCollection = [image1, image2, image3];
-    const container = document.querySelector(".img-box");
-    const detailsButton = document.querySelector("#details-btn");
-    const overlay = document.querySelector(".overlay");
-    const overlayImage = document.querySelector(".overlay-image");
-
-    overlayImage.addEventListener("click", () => {
-      if (!overlay.classList.contains(".hidden")) {
-        overlay.classList.add("hidden");
-      }
-    });
-
-    buttons.forEach((button) => {
-      if (button.id === "previous-btn") {
-        button.addEventListener("click", () => {
-          moveImage(false, container, imageCollection, detailsButton);
-        });
-      } else if (button.id === "next-btn") {
-        button.addEventListener("click", () => {
-          moveImage(true, container, imageCollection, detailsButton);
-        });
-      }
-    });
-
-    main(imageCollection, container, detailsButton, true);
-  </script>
 </html>

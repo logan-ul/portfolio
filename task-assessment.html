@@ -20,12 +20,15 @@
           <p id="title-header">Web Developer</p>
         </div>
       </div>
+      <div class="nav-links"><div class="links"><a class="button" href="index.html">Home</a><a class="button" href="extras.html">Extras</a><a class="button" href="certifications.html">Certifications</a><a class="button" href="about.html">About Me</a></div></div>
     </nav>
-    <main>
+    <main class="content-page project-page">
       <div class="header">
         <h1>Task Assessment Tool</h1>
+        <p class="page-intro">A classroom tool for tracking programming skills and practical assessments.</p>
       </div>
-      <div class="task-assessment-gal-wrapper">
+      <div class="project-layout">
+      <div class="project-gallery-card task-assessment-gal-wrapper">
         <div class="task-assessment-gal gallery">
           <div class="color-wrapper">
             <div class="pictures">
@@ -40,16 +43,12 @@
           </div>
         </div>
       </div>
-        <div class="task-assessment-content">
-          <p>You know how key cards work? Thats pretty similar to what this project was about. As a part of the Computer Programming class at ECTS
-            we can earn these prizes known as "Duck Pieces." With enough of these pieces we can eventually put together a Duck. Once a student put together a duck
-            a chip could then be glued to the bottom and information about said duck would be applied.
+        <div class="project-description task-assessment-content">
+          <p>You know how key cards work? That is similar to how this project works. As part of the Computer Programming class at ECTS, students can earn prizes known as "Duck Pieces." With enough pieces, we can assemble a duck. Once a student builds one, an NFC chip can be attached to the bottom and programmed with information about it.
           </p>
-          <p>My part in this project centers around the actual storage of all this information. The picture you see with the "Request a Duck" form details all the 
-            information students had to fill out. I helped design and create this website that would take this information, store it in a database, and write the api link to the chip on the bottom of the duck.
+          <p>My part in this project focuses on storing and managing that information. The "Request a Duck" form shows the details students had to submit. I helped design and create the website that accepts this information, stores it in a database, and writes the API link to the chip on the bottom of the duck.
           </p>
-          <p>What made this <strong>extra cool</strong> is the little readers that would accept a duck you might place on it and give back information directly from the api.
-          This meant that other people in the class room could:
+          <p>What made this <strong>extra cool</strong> is that small readers can accept a duck and return information directly from the API. This means that people in the classroom can:
           </p>
           <ol>
             <li>
@@ -62,7 +61,7 @@
               Write that information to the duck's chip
             </li>
             <li>
-              Use that information in other later applications
+              Use that information in other applications
             </li>
           </ol>
         </div>
@@ -95,7 +94,7 @@
       const overlayImage = document.querySelector(".overlay-image");
 
       overlayImage.addEventListener("click", () => {
-        if (!overlay.classList.contains(".hidden")) {
+        if (!overlay.classList.contains("hidden")) {
           overlay.classList.add("hidden");
         }
       });

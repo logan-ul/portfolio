@@ -1,10 +1,6 @@
-main {
-  height: 100vh;
-}
-
 .duck-system-gal-wrapper {
-  float: left;
-  padding-right: 20px;
+  float: none;
+  padding-right: 0;
 }
 
 .duck-system-gal {
@@ -12,11 +8,11 @@ main {
 }
 
 .duck-system-content {
-  margin-top: 50px;
+  margin-top: 0;
 }
 
 .duck-system-content *:not(strong):not(li) {
-  padding: 20px;
+  padding: 12px 0;
 }
 
 .duck-system-content ol {
