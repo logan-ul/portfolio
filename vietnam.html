@@ -3,10 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Logan UL - Vietnam Project</title>
+    <title>Logan UL - Vietnam School Project</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="vietnam.css" />
   </head>
   <body>
+    <div class="overlay hidden" id="project-overlay">
+      <div class="overlay-content">
+        <img
+          src=""
+          alt="Expanded Vietnam school project screenshot"
+          class="overlay-image curved-box"
+        />
+      </div>
+    </div>
     <nav>
       <div class="nav-header-content">
         <h1 id="name-header">Logan UL</h1>
@@ -14,43 +24,82 @@
       </div>
       <div class="nav-links">
         <div class="links">
-          <a class="button" href="index.html">Home</a
-          ><a class="button" href="other-projects.html">Other Projects</a>
+          <a class="button" href="index.html">Home</a>
+          <a class="button" href="other-projects.html">Other Projects</a>
+          <a class="button" href="extras.html">Extras</a>
+          <a class="button" href="certifications.html">Certifications</a>
+          <a class="button" href="about.html">About Me</a>
         </div>
       </div>
     </nav>
-    <main class="content-page">
+    <main class="content-page project-page">
       <div class="header">
+        <p class="eyebrow">Web development / research / visual design</p>
         <h1>Vietnam School Project</h1>
         <p class="page-intro">
-          A history and geography timeline project that combines research,
-          structure, and visual presentation.
+          An illustrated timeline bringing together research on Vietnam's
+          history, culture, and places.
         </p>
       </div>
-      <section class="content-grid">
-        <article class="content-card">
+      <section class="project-layout vietnam-project-layout">
+        <div class="project-gallery-card vietnam-gallery-card">
+          <figure class="vietnam-gallery">
+            <button
+              class="vietnam-image-button"
+              id="vietnam-image-button"
+              type="button"
+              aria-label="Enlarge the Vietnam school project screenshot"
+            >
+              <img
+                src="static/Vietnam-Example.png"
+                alt="Screenshot of the Vietnam history timeline project, with illustrated timeline cards"
+                class="vietnam-project-image"
+              />
+              <span class="image-zoom-hint">Click to enlarge</span>
+            </button>
+            <figcaption>
+              Project preview. Select the image to view it larger.
+            </figcaption>
+          </figure>
+        </div>
+        <article class="project-description vietnam-description">
           <p class="eyebrow">Project overview</p>
-          <h2>Research presented as a timeline</h2>
+          <h2>Project overview</h2>
           <p>
-            This project organizes important moments, people, places, and
-            cultural details into a timeline so visitors can explore Vietnam’s
-            history in a clear sequence.
+            This school project presents information about Vietnam in a
+            timeline-style page. The preview includes sections for historical
+            events, important people, landmarks, food, and other topics.
           </p>
           <p>
-            The existing project image is included in the portfolio gallery on
-            the home page.
+            This is placeholder copy for now. The finished description can
+            explain the project goals, my role, the tools I used, and the
+            decisions behind the layout.
           </p>
-        </article>
-        <article class="content-card">
-          <p class="eyebrow">Skills practiced</p>
-          <ul>
-            <li>Research and source organization</li>
-            <li>Information hierarchy</li>
-            <li>Page layout and navigation</li>
-            <li>Presenting complex topics clearly</li>
+          <h2>Details to add</h2>
+          <ul class="vietnam-skill-list">
+            <li>Project requirements and intended audience</li>
+            <li>My contributions and responsibilities</li>
+            <li>Languages, tools, and design choices</li>
+            <li>Challenges, lessons, and next improvements</li>
           </ul>
         </article>
       </section>
     </main>
+    <script>
+      const vietnamOverlay = document.getElementById("project-overlay");
+      const vietnamOverlayImage = vietnamOverlay.querySelector("img");
+      document
+        .getElementById("vietnam-image-button")
+        .addEventListener("click", () => {
+          vietnamOverlayImage.src = "static/Vietnam-Example.png";
+          vietnamOverlay.classList.remove("hidden");
+        });
+      vietnamOverlay.addEventListener("click", () =>
+        vietnamOverlay.classList.add("hidden"),
+      );
+      vietnamOverlayImage.addEventListener("click", (event) =>
+        event.stopPropagation(),
+      );
+    </script>
   </body>
 </html>

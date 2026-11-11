@@ -22,7 +22,9 @@ function main(
   detailsButton = null,
   overlay = false,
 ) {
-  imageCollection.forEach((picture, number) => {
+  console.log(imageCollection);
+  for (number = 0; number < imageCollection.length; number++) {
+    let picture = imageCollection[number];
     picture.element.src = picture.imagePath;
     picture.element.id = `example-img-${number + 1}`;
     picture.element.classList.add("image");
@@ -30,17 +32,18 @@ function main(
     if (overlay) {
       uncoverOverlay(picture);
     }
-  });
+  }
   updateImages(container, imageCollection, detailsButton);
 }
 
 function updateImages(container, imageCollection, detailsButton = null) {
   container.innerHTML = "";
-  const picture = imageCollection[0];
-  if (!picture) return;
-  container.appendChild(picture.element);
-  if (detailsButton) {
-    detailsButton.href = `${picture.name}.html`;
+  for (number = 0; number < imageCollection.length; number++) {
+    console.log(imageCollection[number]);
+    container.appendChild(imageCollection[number].element);
+    if (detailsButton) {
+      detailsButton.href = `/${imageCollection[1].name}.html`;
+    }
   }
 }
 

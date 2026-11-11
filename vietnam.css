@@ -1,0 +1,83 @@
+.vietnam-project-layout {
+  grid-template-columns: minmax(0, 1.2fr) minmax(360px, 0.8fr);
+  max-width: 1180px;
+}
+
+.vietnam-gallery-card {
+  padding: 18px;
+}
+
+.vietnam-gallery {
+  margin: 0;
+}
+
+.vietnam-image-button {
+  display: block;
+  position: relative;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.vietnam-project-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 75vh;
+  object-fit: contain;
+  background: var(--prussian-blue);
+}
+
+.image-zoom-hint {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  padding: 7px 12px;
+  border-radius: 18px;
+  background: rgba(13, 27, 42, 0.88);
+  color: var(--alabaster-grey);
+  font-size: 0.85rem;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.vietnam-image-button:hover .image-zoom-hint,
+.vietnam-image-button:focus-visible .image-zoom-hint {
+  opacity: 1;
+}
+
+.vietnam-gallery figcaption {
+  padding: 12px 4px 2px;
+  text-align: left;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.vietnam-description h2:not(:first-of-type) {
+  margin-top: 25px;
+}
+
+.vietnam-skill-list {
+  padding-left: 22px;
+}
+
+.vietnam-skill-list li {
+  margin: 5px 0;
+}
+
+.project-overlay-image {
+  width: auto;
+  height: auto;
+  max-width: 92vw;
+  max-height: 92vh;
+}
+
+@media screen and (max-width: 768px) {
+  .vietnam-project-layout {
+    grid-template-columns: 1fr;
+  }
+}
