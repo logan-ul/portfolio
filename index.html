@@ -19,14 +19,6 @@
           <p id="title-header">Web Developer</p>
         </div>
       </div>
-      <div class="mobile-sidebar hidden">
-        <img
-          src="static/lines-svgrepo-com.svg"
-          alt=""
-          id="sidebar-button"
-          style="filter: invert(1)"
-        />
-      </div>
       <div class="nav-links">
         <div class="links">
           <div class="dropdown">
@@ -179,22 +171,6 @@
 
       main(imageCollection, container, detailsButton, true);
     </script>
-    <script>
-      //for the sidebar
-      const sidebarBtn = document.getElementById("sidebar-button");
-      const nav_links = document.querySelector(".nav-links");
-      const socials = document.querySelector(".socials");
-
-      sidebarBtn.addEventListener("click", (e) => {
-        nav_links.classList.add("nav-links-active");
-        overlay.classList.remove("hidden");
-        socials.classList.remove("hidden");
-        overlay.addEventListener("click", (e) => {
-          nav_links.classList.remove("nav-links-active");
-          overlay.classList.add("hidden");
-          socials.classList.add("hidden");
-        });
-      });
-    </script>
+    <script src="mobile-nav.js"></script>
   </body>
 </html>

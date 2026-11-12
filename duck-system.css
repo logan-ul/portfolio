@@ -17,4 +17,7 @@
 .duck-system-content ol {
   display: flex;
   flex-direction: column;
+  padding-left: 0;
+  margin-left: 0;
+  list-style-position: inside;
 }

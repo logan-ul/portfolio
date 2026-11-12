@@ -43,24 +43,18 @@
       </div>
       <section class="project-layout vietnam-project-layout">
         <div class="project-gallery-card vietnam-gallery-card">
-          <figure class="vietnam-gallery">
-            <button
-              class="vietnam-image-button"
-              id="vietnam-image-button"
-              type="button"
-              aria-label="Enlarge the Vietnam school project screenshot"
-            >
-              <img
-                src="static/Vietnam-Example.png"
-                alt="Screenshot of the Vietnam history timeline project, with illustrated timeline cards"
-                class="vietnam-project-image"
-              />
-              <span class="image-zoom-hint">Click to enlarge</span>
-            </button>
-            <figcaption>
-              Project preview. Select the image to view it larger.
-            </figcaption>
-          </figure>
+          <div class="gallery vietnam-gallery">
+            <div class="pictures">
+              <div class="img-box"></div>
+              <p>Current project preview and temporary placeholders for additional screenshots.</p>
+            </div>
+            <div class="options">
+              <div id="upper-buttons">
+                <button id="previous-btn" class="button move-button" type="button">Previous</button>
+                <button id="next-btn" class="button move-button" type="button">Next</button>
+              </div>
+            </div>
+          </div>
         </div>
         <article class="project-description vietnam-description">
           <p class="eyebrow">Project overview</p>
@@ -85,21 +79,38 @@
         </article>
       </section>
     </main>
-    <script>
-      const vietnamOverlay = document.getElementById("project-overlay");
-      const vietnamOverlayImage = vietnamOverlay.querySelector("img");
-      document
-        .getElementById("vietnam-image-button")
-        .addEventListener("click", () => {
-          vietnamOverlayImage.src = "static/Vietnam-Example.png";
-          vietnamOverlay.classList.remove("hidden");
+    <script src="gallery.js"></script>
+    <script defer>
+      const createPlaceholder = (title, subtitle) => {
+        const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800"><rect width="1200" height="800" fill="#1b263b"/><rect x="40" y="40" width="1120" height="720" rx="28" fill="#263952" stroke="#778da9" stroke-width="4"/><circle cx="600" cy="310" r="92" fill="#415a77"/><path d="M600 255v110M545 310h110" stroke="#e0e1dd" stroke-width="12" stroke-linecap="round"/><text x="600" y="490" fill="#e0e1dd" font-family="Arial,sans-serif" font-size="46" text-anchor="middle">${title}</text><text x="600" y="555" fill="#bfc0bc" font-family="Arial,sans-serif" font-size="28" text-anchor="middle">${subtitle}</text></svg>`;
+        return `data:image/svg+xml,${encodeURIComponent(svg)}`;
+      };
+
+      const overviewImage = document.createElement("img");
+      overviewImage.alt = "Vietnam school project timeline preview";
+      const researchImage = document.createElement("img");
+      researchImage.alt = "Placeholder for a Vietnam project research screenshot";
+      const layoutImage = document.createElement("img");
+      layoutImage.alt = "Placeholder for another Vietnam project screenshot";
+
+      const imageCollection = [
+        new GalleryImage("vietnam", "static/Vietnam-Example.png", overviewImage),
+        new GalleryImage("vietnam-research", createPlaceholder("Research section", "Screenshot placeholder"), researchImage),
+        new GalleryImage("vietnam-layout", createPlaceholder("Timeline details", "Screenshot placeholder"), layoutImage),
+      ];
+      const container = document.querySelector(".img-box");
+      const overlay = document.querySelector("#project-overlay");
+      const overlayImage = overlay.querySelector("img");
+
+      overlay.addEventListener("click", () => overlay.classList.add("hidden"));
+      overlayImage.addEventListener("click", (event) => event.stopPropagation());
+      document.querySelectorAll(".move-button").forEach((button) => {
+        button.addEventListener("click", () => {
+          moveImage(button.id === "next-btn", container, imageCollection);
         });
-      vietnamOverlay.addEventListener("click", () =>
-        vietnamOverlay.classList.add("hidden"),
-      );
-      vietnamOverlayImage.addEventListener("click", (event) =>
-        event.stopPropagation(),
-      );
+      });
+      main(imageCollection, container, null, true);
     </script>
+    <script src="mobile-nav.js"></script>
   </body>
 </html>
